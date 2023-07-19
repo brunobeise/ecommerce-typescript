@@ -3,30 +3,30 @@ import validateDataUser from "../middlewares/validateDataUser"
 import { Product } from "../models/Product";
 import { User } from "../models/User";
 
-class UserController{
-    public add(data: any): User | boolean{
+class UserController {
+    public add(data: any): User | undefined {
         const validated = validateDataUser(data);
-        if(validated) {
+        if (validated) {
             const newUser = new User(data.name, data.username, data.email);
             users.push(newUser);
             return newUser;
         } else {
             console.log("Dados inválidos");
-            return false;
+            return undefined;
         }
     }
 
-    public addToCart(user:User, product:Product) {
+    public addToCart(user: User, product: Product) {
         user.addToCart(product);
     }
 
-    public remove(){
+    public remove() {
 
     }
-    public list(){
+    public list() {
         console.log(users);
     }
-    public update(){
+    public update() {
 
     }
 }

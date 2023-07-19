@@ -3,24 +3,26 @@ import { validateDataProduct } from "../middlewares";
 import { Product } from "../models/Product";
 
 class ProductController {
-    public add(data: any): Product | boolean {
+    public add(data: any): Product | undefined {
         const validated = validateDataProduct(data);
-        if(validated) {
+        if (validated) {
+            console.log("criou");
+
             const newProduct = new Product(data.name, data.value);
             products.push(newProduct);
             return newProduct;
         }
-    
-        return false;
+
+        return undefined;
     }
-    
-    public remove(){
+
+    public remove() {
 
     }
-    public list(){
+    public list() {
         console.log(products);
     }
-    public update(){
+    public update() {
 
     }
 }

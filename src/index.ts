@@ -4,14 +4,17 @@ import { validateDataUser } from "./middlewares";
 import { Product } from "./models/Product";
 import { User } from "./models/User";
 
-const user1 = UserController.add({name:"Marcele", username:"marcele", email:"marcele@email.com"});
-const product1 = ProductController.add({name: "Pizza", value: 45});
+const user = UserController.add({ name: "Marcele", username: "marcele", email: "marcele@email.com" });
+const user2 = UserController.add({ name: "Marcele", username: "marcele", email: "marcele@email.com" });
+const pizza = ProductController.add({ name: "Pizza", value: 45 });
 
-const dataUser = {name: "name"}
-const validateTest = validateDataUser(dataUser);
 
-console.log(validateTest);
+pizza?.addComment("comentario do everton", user!)
 
-UserController.addToCart(user1 as User, product1 as Product);
+console.log(pizza?.addComment("comentario 2 do everton", user!));
 
-UserController.list();
+console.log(pizza?.addRate(4.2, user!));
+
+console.log(pizza?.getUserComments(user2!));
+
+

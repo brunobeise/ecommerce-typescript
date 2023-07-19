@@ -3,7 +3,7 @@ import { Product } from "./Product";
 
 export class User {
     private id: string;
-    private cart: Product [];
+    private cart: Product[];
     private name: string;
     private username: string;
     private email: string;
@@ -21,17 +21,21 @@ export class User {
     }
 
     public removeFromCart(product: Product): void {
-        const index = this.cart.findIndex(item=>item.getId() === product.getId())
-        if(index !== -1){
+        const index = this.cart.findIndex(item => item.getId() === product.getId())
+        if (index !== -1) {
             this.cart.splice(index, 1)
-        }else{
+        } else {
             console.log(`Produto não encontrado.`)
         }
-        
+
     }
 
     public showProduct(product: Product): string {
         return ""
+    }
+
+    public getId(): string {
+        return this.id
     }
 }
 
